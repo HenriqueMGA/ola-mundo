@@ -18,10 +18,10 @@ export default function Post() {
         return <h1>Post não encontrado...</h1>
     }
 
-    const postRecomendado = posts
+    const postsRecomendados = posts
         .filter((post) => post.id !== Number(parametros.id))
         .sort((a, b) => b.id - a.id)
-        .slice(0, 4)
+        .slice(0, 4);
     
     return (
         <PaginaPadrao>
@@ -40,12 +40,12 @@ export default function Post() {
                 </h2>
 
                 <ul className={styles.postsRecomendados}>
-                    {postsRecomendados.map((post) => {
-                        <li key={post.id}>
-                            <PostCard post={post} />
-                        </li>
-                    })}
-                </ul>
+                        {postsRecomendados.map((post) => (
+                            <li key={post.id}>
+                                <PostCard post={post} />
+                            </li>
+                        ))}
+                    </ul>
             </PostModelo>
         </PaginaPadrao>
         
